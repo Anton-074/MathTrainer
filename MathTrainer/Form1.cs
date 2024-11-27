@@ -196,7 +196,7 @@ namespace MathTrainer
         private void btnFinish_Click(object sender, EventArgs e)
         {
             // Закрываем текущую форму и открываем Form2
-            this.Hide(); // Скрываем текущую форму
+            this.Hide(); // Скрываем текущую форм
             Form2 form2 = new Form2(); // Создаем экземпляр Form2
             form2.Show(); // Показываем Form2
         }
