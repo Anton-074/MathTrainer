@@ -40,20 +40,22 @@
             radioMedium = new RadioButton();
             radioHard = new RadioButton();
             btnStart = new Button();
+            btnExid = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(label1);
             panel1.Controls.Add(radioDivision);
             panel1.Controls.Add(radioMultiplication);
             panel1.Controls.Add(radioSubtraction);
             panel1.Controls.Add(radioAddition);
-            panel1.Location = new Point(90, 120);
+            panel1.Location = new Point(78, 89);
             panel1.Name = "panel1";
-            panel1.Size = new Size(207, 208);
+            panel1.Size = new Size(207, 290);
             panel1.TabIndex = 3;
             // 
             // label1
@@ -68,57 +70,58 @@
             // 
             // radioDivision
             // 
-            radioDivision.AutoSize = true;
-            radioDivision.Location = new Point(28, 176);
+            radioDivision.Location = new Point(28, 214);
             radioDivision.Name = "radioDivision";
-            radioDivision.Size = new Size(72, 19);
+            radioDivision.Size = new Size(150, 35);
             radioDivision.TabIndex = 3;
             radioDivision.TabStop = true;
             radioDivision.Text = "Деление";
+            radioDivision.TextAlign = ContentAlignment.MiddleCenter;
             radioDivision.UseVisualStyleBackColor = true;
             // 
             // radioMultiplication
             // 
-            radioMultiplication.AutoSize = true;
-            radioMultiplication.Location = new Point(28, 135);
+            radioMultiplication.Location = new Point(27, 157);
             radioMultiplication.Name = "radioMultiplication";
-            radioMultiplication.Size = new Size(90, 19);
+            radioMultiplication.Size = new Size(150, 35);
             radioMultiplication.TabIndex = 2;
             radioMultiplication.TabStop = true;
             radioMultiplication.Text = "Умножение";
+            radioMultiplication.TextAlign = ContentAlignment.MiddleCenter;
             radioMultiplication.UseVisualStyleBackColor = true;
             // 
             // radioSubtraction
             // 
-            radioSubtraction.AutoSize = true;
-            radioSubtraction.Location = new Point(29, 88);
+            radioSubtraction.Location = new Point(28, 109);
             radioSubtraction.Name = "radioSubtraction";
-            radioSubtraction.Size = new Size(86, 19);
+            radioSubtraction.Size = new Size(150, 35);
             radioSubtraction.TabIndex = 1;
             radioSubtraction.TabStop = true;
             radioSubtraction.Text = "Вычитание";
+            radioSubtraction.TextAlign = ContentAlignment.MiddleCenter;
             radioSubtraction.UseVisualStyleBackColor = true;
             // 
             // radioAddition
             // 
-            radioAddition.AutoSize = true;
-            radioAddition.Location = new Point(28, 51);
+            radioAddition.Location = new Point(28, 59);
             radioAddition.Name = "radioAddition";
-            radioAddition.Size = new Size(82, 19);
+            radioAddition.Size = new Size(150, 35);
             radioAddition.TabIndex = 0;
             radioAddition.TabStop = true;
             radioAddition.Text = "Сложение";
+            radioAddition.TextAlign = ContentAlignment.MiddleCenter;
             radioAddition.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
+            panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(label2);
             panel2.Controls.Add(radioEasy);
             panel2.Controls.Add(radioMedium);
             panel2.Controls.Add(radioHard);
-            panel2.Location = new Point(466, 120);
+            panel2.Location = new Point(486, 89);
             panel2.Name = "panel2";
-            panel2.Size = new Size(212, 208);
+            panel2.Size = new Size(212, 290);
             panel2.TabIndex = 5;
             // 
             // label2
@@ -133,40 +136,40 @@
             // 
             // radioEasy
             // 
-            radioEasy.AutoSize = true;
-            radioEasy.Location = new Point(28, 67);
+            radioEasy.Location = new Point(43, 59);
             radioEasy.Name = "radioEasy";
-            radioEasy.Size = new Size(64, 19);
+            radioEasy.Size = new Size(121, 49);
             radioEasy.TabIndex = 3;
             radioEasy.TabStop = true;
             radioEasy.Text = "Легкий";
+            radioEasy.TextAlign = ContentAlignment.MiddleCenter;
             radioEasy.UseVisualStyleBackColor = true;
             // 
             // radioMedium
             // 
-            radioMedium.AutoSize = true;
-            radioMedium.Location = new Point(28, 114);
+            radioMedium.Location = new Point(43, 131);
             radioMedium.Name = "radioMedium";
-            radioMedium.Size = new Size(73, 19);
+            radioMedium.Size = new Size(121, 49);
             radioMedium.TabIndex = 2;
             radioMedium.TabStop = true;
             radioMedium.Text = "Средний";
+            radioMedium.TextAlign = ContentAlignment.MiddleCenter;
             radioMedium.UseVisualStyleBackColor = true;
             // 
             // radioHard
             // 
-            radioHard.AutoSize = true;
-            radioHard.Location = new Point(28, 164);
+            radioHard.Location = new Point(43, 200);
             radioHard.Name = "radioHard";
-            radioHard.Size = new Size(79, 19);
+            radioHard.Size = new Size(121, 49);
             radioHard.TabIndex = 1;
             radioHard.TabStop = true;
             radioHard.Text = "Сложный";
+            radioHard.TextAlign = ContentAlignment.MiddleCenter;
             radioHard.UseVisualStyleBackColor = true;
             // 
             // btnStart
             // 
-            btnStart.Location = new Point(310, 378);
+            btnStart.Location = new Point(303, 149);
             btnStart.Name = "btnStart";
             btnStart.Size = new Size(161, 60);
             btnStart.TabIndex = 6;
@@ -174,11 +177,22 @@
             btnStart.UseVisualStyleBackColor = true;
             btnStart.Click += btnStart_Click;
             // 
+            // btnExid
+            // 
+            btnExid.Location = new Point(303, 234);
+            btnExid.Name = "btnExid";
+            btnExid.Size = new Size(161, 60);
+            btnExid.TabIndex = 7;
+            btnExid.Text = "Выход";
+            btnExid.UseVisualStyleBackColor = true;
+            btnExid.Click += btnExid_Click;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnExid);
             Controls.Add(btnStart);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -207,5 +221,6 @@
         private RadioButton radioMedium;
         private RadioButton radioHard;
         private Button btnStart;
+        private Button btnExid;
     }
 }

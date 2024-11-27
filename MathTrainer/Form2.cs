@@ -43,5 +43,11 @@ namespace MathTrainer
             trainingForm.Show();
             this.Hide(); // Скрыть текущую форму
         }
+
+        private void btnExid_Click(object sender, EventArgs e)
+        {
+            this.Close(); 
+
+        }
     }
 }

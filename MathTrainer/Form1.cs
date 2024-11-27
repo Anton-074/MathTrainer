@@ -16,11 +16,11 @@ namespace MathTrainer
         {
             InitializeComponent();
             random = new Random();
-            SetDifficulty(difficulty);
-            SetOperation(operation);
+            SetOperation(operation, difficulty);
             GenerateQuestion();
         }
-        private void SetDifficulty(int difficulty)
+
+        private void SetOperation(int operation, int difficulty)
         {
             switch (difficulty)
             {
@@ -30,38 +30,67 @@ namespace MathTrainer
                     break;
                 case 2: // Средний
                     minNumber = 11;
-                    maxNumber = 50;
-                    break;
-                case 3: // Сложный
-                    minNumber = 51;
                     maxNumber = 100;
                     break;
+                case 3: // Сложный
+                    minNumber = 101;
+                    maxNumber = 300;
+                    break;
             }
-        }
 
-        private void SetOperation(int operation)
-        {
             switch (operation)
             {
-                case 1:
+                case 1: // +
                     this.operation = "addition";
                     break;
-                case 2:
+                case 2: // -
                     this.operation = "subtraction";
                     break;
-                case 3:
+                case 3: // *
                     this.operation = "multiplication";
+                    switch (difficulty)
+                    {
+                        case 1:
+                            minNumber = 1;
+                            maxNumber = 10;
+                            break;
+                        case 2:
+                            minNumber = 11;
+                            maxNumber = 20;
+                            break;
+                        case 3:
+                            minNumber = 15;
+                            maxNumber = 30;
+                            break;
+                    }
                     break;
-                case 4:
+                case 4: // /
                     this.operation = "division";
+                    switch (difficulty)
+                    {
+                        case 1:
+                            minNumber = 1;
+                            maxNumber = 50;
+                            break;
+                        case 2:
+                            minNumber = 2;
+                            maxNumber = 200;
+                            break;
+                        case 3:
+                            minNumber = 2;
+                            maxNumber = 500;
+                            break;
+                    }
                     break;
             }
+            
         }
 
         private void GenerateQuestion()
         {
-            int num1 = random.Next(minNumber, maxNumber + 1);
-            int num2 = random.Next(minNumber, maxNumber + 1);
+
+            int num1 = random.Next(minNumber+1, maxNumber + 1);
+            int num2 = random.Next(minNumber, num1+1);
 
             switch (operation)
             {
@@ -80,6 +109,10 @@ namespace MathTrainer
                 case "division":
                     // Убедимся, что делим на ненулевое число
                     if (num2 == 0) num2 = 1; // Избегаем деления на ноль
+                    while(num1 % num2 != 0)
+                    {
+                        num2 = random.Next(minNumber, num1 + 1);
+                    }
                     correctAnswer = num1 / num2;
                     questionLabel.Text = $"{num1} / {num2} = ?";
                     break;
@@ -95,7 +128,7 @@ namespace MathTrainer
         {
             // Генерируем варианты ответов
             List<int> options = new List<int> { correctAnswer };
-            while (options.Count < 4)
+            while (options.Count < 3)
             {
                 int randomOption = random.Next(correctAnswer - 5, correctAnswer + 5);
                 if (!options.Contains(randomOption) && randomOption >= 0) // Убедимся, что ответ не повторяется и не отрицательный
