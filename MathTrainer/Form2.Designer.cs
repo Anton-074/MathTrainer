@@ -147,7 +147,7 @@
             // 
             // radioMedium
             // 
-            radioMedium.Location = new Point(43, 131);
+            radioMedium.Location = new Point(43, 125);
             radioMedium.Name = "radioMedium";
             radioMedium.Size = new Size(121, 49);
             radioMedium.TabIndex = 2;
