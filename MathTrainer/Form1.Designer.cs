@@ -35,10 +35,11 @@
             answerButton3 = new Button();
             NextQ = new Button();
             panel1 = new Panel();
+            label1 = new Label();
             panel2 = new Panel();
             panel3 = new Panel();
             btnFInish = new Button();
-            label1 = new Label();
+            labelDifficulty = new Label();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             SuspendLayout();
@@ -46,9 +47,9 @@
             // questionLabel
             // 
             questionLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            questionLabel.Location = new Point(65, 123);
+            questionLabel.Location = new Point(41, 123);
             questionLabel.Name = "questionLabel";
-            questionLabel.Size = new Size(101, 51);
+            questionLabel.Size = new Size(156, 51);
             questionLabel.TabIndex = 0;
             questionLabel.Text = "Вопрос";
             questionLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -96,9 +97,10 @@
             // 
             // NextQ
             // 
-            NextQ.Location = new Point(410, 254);
+            NextQ.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            NextQ.Location = new Point(172, 256);
             NextQ.Name = "NextQ";
-            NextQ.Size = new Size(75, 23);
+            NextQ.Size = new Size(202, 41);
             NextQ.TabIndex = 6;
             NextQ.Text = "Далее";
             NextQ.UseVisualStyleBackColor = true;
@@ -115,6 +117,16 @@
             panel1.Size = new Size(246, 300);
             panel1.TabIndex = 7;
             // 
+            // label1
+            // 
+            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label1.Location = new Point(23, 64);
+            label1.Name = "label1";
+            label1.Size = new Size(193, 48);
+            label1.TabIndex = 9;
+            label1.Text = "Решите пример";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // panel2
             // 
             panel2.Location = new Point(244, 0);
@@ -125,7 +137,6 @@
             // panel3
             // 
             panel3.BorderStyle = BorderStyle.FixedSingle;
-            panel3.Controls.Add(btnFInish);
             panel3.Controls.Add(resultLabel);
             panel3.Controls.Add(answerButton1);
             panel3.Controls.Add(NextQ);
@@ -138,32 +149,37 @@
             // 
             // btnFInish
             // 
-            btnFInish.Location = new Point(55, 254);
+            btnFInish.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            btnFInish.Location = new Point(24, 395);
             btnFInish.Name = "btnFInish";
-            btnFInish.Size = new Size(152, 23);
+            btnFInish.Size = new Size(199, 41);
             btnFInish.TabIndex = 7;
             btnFInish.Text = "Завершить тренеровку";
             btnFInish.UseVisualStyleBackColor = true;
             btnFInish.Click += btnFinish_Click;
             // 
-            // label1
+            // labelDifficulty
             // 
-            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label1.Location = new Point(23, 64);
-            label1.Name = "label1";
-            label1.Size = new Size(193, 48);
-            label1.TabIndex = 9;
-            label1.Text = "Решите пример";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            labelDifficulty.Dock = DockStyle.Top;
+            labelDifficulty.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelDifficulty.Location = new Point(0, 0);
+            labelDifficulty.Name = "labelDifficulty";
+            labelDifficulty.Size = new Size(800, 79);
+            labelDifficulty.TabIndex = 9;
+            labelDifficulty.Text = "Сложность";
+            labelDifficulty.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 448);
+            Controls.Add(btnFInish);
+            Controls.Add(labelDifficulty);
             Controls.Add(panel3);
             Controls.Add(panel1);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += Form1_Load;
             panel1.ResumeLayout(false);
@@ -184,5 +200,6 @@
         private Panel panel3;
         private Button btnFInish;
         private Label label1;
+        private Label labelDifficulty;
     }
 }

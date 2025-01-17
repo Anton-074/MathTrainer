@@ -40,14 +40,13 @@ namespace MathTrainer
 
 
             Form1 trainingForm = new Form1(difficulty, operation);
-            trainingForm.Show();
+            trainingForm.Show();//Открываем следущую форму
             this.Hide(); // Скрыть текущую форму
         }
 
         private void btnExid_Click(object sender, EventArgs e)
         {
-            this.Close(); 
-
+            Environment.Exit(0);
         }
     }
 }

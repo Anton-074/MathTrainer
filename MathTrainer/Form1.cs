@@ -10,7 +10,11 @@ namespace MathTrainer
         private int correctAnswer;
         private int minNumber;
         private int maxNumber;
+        private int minNumberNum1;
+        private int minNumberNum2;
         private string operation;
+        private string operationRus;
+        private string difficultyRus;
 
         public Form1(int difficulty, int operation)
         {
@@ -25,14 +29,17 @@ namespace MathTrainer
             switch (difficulty)
             {
                 case 1: // Легкий
+                    this.difficultyRus = "Легкий уровень";
                     minNumber = 1;
                     maxNumber = 10;
                     break;
                 case 2: // Средний
+                    this.difficultyRus = "Средний уровень";
                     minNumber = 11;
                     maxNumber = 100;
                     break;
                 case 3: // Сложный
+                    this.difficultyRus = "Сложный уровень";
                     minNumber = 101;
                     maxNumber = 300;
                     break;
@@ -42,12 +49,15 @@ namespace MathTrainer
             {
                 case 1: // +
                     this.operation = "addition";
+                    this.operationRus = "Сложение";
                     break;
                 case 2: // -
                     this.operation = "subtraction";
+                    this.operationRus = "Вычитание";
                     break;
                 case 3: // *
                     this.operation = "multiplication";
+                    this.operationRus = "Умножение";
                     switch (difficulty)
                     {
                         case 1:
@@ -66,31 +76,45 @@ namespace MathTrainer
                     break;
                 case 4: // /
                     this.operation = "division";
+                    this.operationRus = "Деление";
                     switch (difficulty)
                     {
                         case 1:
-                            minNumber = 1;
+                            minNumberNum1 = 4;
+                            minNumberNum2 = 1;
                             maxNumber = 50;
                             break;
                         case 2:
-                            minNumber = 2;
+                            minNumberNum1 = 50;
+                            minNumberNum2 = 2;
                             maxNumber = 200;
                             break;
                         case 3:
-                            minNumber = 2;
+                            minNumberNum1 = 200;
+                            minNumberNum2 = 2;
                             maxNumber = 500;
                             break;
                     }
                     break;
             }
-            
+            labelDifficulty.Text = $"{operationRus} : {difficultyRus}";
         }
 
         private void GenerateQuestion()
         {
-
-            int num1 = random.Next(minNumber+1, maxNumber + 1);
-            int num2 = random.Next(minNumber, num1+1);
+            int num1 = 0;
+            int num2 = 0;
+            if (operation != "division")
+            {
+                num1 = random.Next(minNumber + 1, maxNumber + 1);
+                num2 = random.Next(minNumber, num1 + 1);
+            }
+            else
+            {
+                num1 = random.Next(minNumberNum1 + 1, maxNumber + 1);
+                num2 = random.Next(minNumberNum2 + 1, num1 + 1);
+            }
+            
 
             switch (operation)
             {
@@ -108,10 +132,11 @@ namespace MathTrainer
                     break;
                 case "division":
                     // Убедимся, что делим на ненулевое число
-                    if (num2 == 0) num2 = 1; // Избегаем деления на ноль
+                    if (num2 == 0) num2 = 2; // Избегаем деления на ноль
+                    
                     while(num1 % num2 != 0)
                     {
-                        num2 = random.Next(minNumber, num1 + 1);
+                        num2 = random.Next(minNumberNum2 + 1, num1 + 1);
                     }
                     correctAnswer = num1 / num2;
                     questionLabel.Text = $"{num1} / {num2} = ?";

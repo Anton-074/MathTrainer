@@ -74,7 +74,6 @@
             radioDivision.Name = "radioDivision";
             radioDivision.Size = new Size(150, 35);
             radioDivision.TabIndex = 3;
-            radioDivision.TabStop = true;
             radioDivision.Text = "Деление";
             radioDivision.TextAlign = ContentAlignment.MiddleCenter;
             radioDivision.UseVisualStyleBackColor = true;
@@ -85,7 +84,6 @@
             radioMultiplication.Name = "radioMultiplication";
             radioMultiplication.Size = new Size(150, 35);
             radioMultiplication.TabIndex = 2;
-            radioMultiplication.TabStop = true;
             radioMultiplication.Text = "Умножение";
             radioMultiplication.TextAlign = ContentAlignment.MiddleCenter;
             radioMultiplication.UseVisualStyleBackColor = true;
@@ -96,13 +94,13 @@
             radioSubtraction.Name = "radioSubtraction";
             radioSubtraction.Size = new Size(150, 35);
             radioSubtraction.TabIndex = 1;
-            radioSubtraction.TabStop = true;
             radioSubtraction.Text = "Вычитание";
             radioSubtraction.TextAlign = ContentAlignment.MiddleCenter;
             radioSubtraction.UseVisualStyleBackColor = true;
             // 
             // radioAddition
             // 
+            radioAddition.Checked = true;
             radioAddition.Location = new Point(28, 59);
             radioAddition.Name = "radioAddition";
             radioAddition.Size = new Size(150, 35);
@@ -136,6 +134,7 @@
             // 
             // radioEasy
             // 
+            radioEasy.Checked = true;
             radioEasy.Location = new Point(43, 59);
             radioEasy.Name = "radioEasy";
             radioEasy.Size = new Size(121, 49);
@@ -151,7 +150,6 @@
             radioMedium.Name = "radioMedium";
             radioMedium.Size = new Size(121, 49);
             radioMedium.TabIndex = 2;
-            radioMedium.TabStop = true;
             radioMedium.Text = "Средний";
             radioMedium.TextAlign = ContentAlignment.MiddleCenter;
             radioMedium.UseVisualStyleBackColor = true;
@@ -162,7 +160,6 @@
             radioHard.Name = "radioHard";
             radioHard.Size = new Size(121, 49);
             radioHard.TabIndex = 1;
-            radioHard.TabStop = true;
             radioHard.Text = "Сложный";
             radioHard.TextAlign = ContentAlignment.MiddleCenter;
             radioHard.UseVisualStyleBackColor = true;
@@ -197,6 +194,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "Form2";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
             Load += Form2_Load;
             panel1.ResumeLayout(false);
