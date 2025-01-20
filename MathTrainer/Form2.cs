@@ -15,6 +15,7 @@ namespace MathTrainer
         public Form2()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void Form2_Load(object sender, EventArgs e)

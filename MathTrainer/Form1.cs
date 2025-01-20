@@ -19,6 +19,7 @@ namespace MathTrainer
         public Form1(int difficulty, int operation)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
             random = new Random();
             SetOperation(operation, difficulty);
             GenerateQuestion();
@@ -114,7 +115,7 @@ namespace MathTrainer
                 num1 = random.Next(minNumberNum1 + 1, maxNumber + 1);
                 num2 = random.Next(minNumberNum2 + 1, num1 + 1);
             }
-            
+
 
             switch (operation)
             {
@@ -133,8 +134,8 @@ namespace MathTrainer
                 case "division":
                     // Убедимся, что делим на ненулевое число
                     if (num2 == 0) num2 = 2; // Избегаем деления на ноль
-                    
-                    while(num1 % num2 != 0)
+
+                    while (num1 % num2 != 0)
                     {
                         num2 = random.Next(minNumberNum2 + 1, num1 + 1);
                     }
@@ -192,14 +193,15 @@ namespace MathTrainer
                 {
                     resultLabel.Text = $"Неправильно. Правильный ответ: {correctAnswer}";
                     clickedButton.BackColor = System.Drawing.Color.Red;
+
                 }
             }
         }
         private void ResetButtonColors()
         {
-            answerButton1.BackColor = SystemColors.Control;
-            answerButton2.BackColor = SystemColors.Control;
-            answerButton3.BackColor = SystemColors.Control;
+            answerButton1.BackColor = Color.FromArgb(35, 34, 73);
+            answerButton2.BackColor = Color.FromArgb(35, 34, 73);
+            answerButton3.BackColor = Color.FromArgb(35, 34, 73);
 
             // Разблокируем кнопки
             answerButton1.Enabled = true;
@@ -226,6 +228,11 @@ namespace MathTrainer
             form2.Show(); // Показываем Form2
         }
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelDifficulty_Click(object sender, EventArgs e)
         {
 
         }

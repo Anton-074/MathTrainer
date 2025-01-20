@@ -47,6 +47,7 @@
             // questionLabel
             // 
             questionLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            questionLabel.ForeColor = Color.White;
             questionLabel.Location = new Point(41, 123);
             questionLabel.Name = "questionLabel";
             questionLabel.Size = new Size(156, 51);
@@ -56,18 +57,21 @@
             // 
             // answerButton1
             // 
+            answerButton1.BackColor = Color.FromArgb(35, 34, 73);
             answerButton1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            answerButton1.ForeColor = Color.White;
             answerButton1.Location = new Point(55, 64);
             answerButton1.Name = "answerButton1";
             answerButton1.Size = new Size(99, 51);
             answerButton1.TabIndex = 2;
-            answerButton1.UseVisualStyleBackColor = true;
+            answerButton1.UseVisualStyleBackColor = false;
             answerButton1.Click += AnswerButton_Click;
             // 
             // resultLabel
             // 
             resultLabel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             resultLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            resultLabel.ForeColor = Color.White;
             resultLabel.Location = new Point(98, 152);
             resultLabel.Name = "resultLabel";
             resultLabel.Size = new Size(361, 51);
@@ -77,37 +81,44 @@
             // 
             // answerButton2
             // 
+            answerButton2.BackColor = Color.FromArgb(35, 34, 73);
             answerButton2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            answerButton2.ForeColor = Color.White;
             answerButton2.Location = new Point(228, 64);
             answerButton2.Name = "answerButton2";
             answerButton2.Size = new Size(99, 51);
             answerButton2.TabIndex = 4;
-            answerButton2.UseVisualStyleBackColor = true;
+            answerButton2.UseVisualStyleBackColor = false;
             answerButton2.Click += AnswerButton_Click;
             // 
             // answerButton3
             // 
+            answerButton3.BackColor = Color.FromArgb(35, 34, 73);
             answerButton3.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            answerButton3.ForeColor = Color.White;
             answerButton3.Location = new Point(400, 64);
             answerButton3.Name = "answerButton3";
             answerButton3.Size = new Size(99, 51);
             answerButton3.TabIndex = 5;
-            answerButton3.UseVisualStyleBackColor = true;
+            answerButton3.UseVisualStyleBackColor = false;
             answerButton3.Click += AnswerButton_Click;
             // 
             // NextQ
             // 
+            NextQ.BackColor = Color.FromArgb(35, 34, 73);
             NextQ.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            NextQ.ForeColor = Color.White;
             NextQ.Location = new Point(172, 256);
             NextQ.Name = "NextQ";
             NextQ.Size = new Size(202, 41);
             NextQ.TabIndex = 6;
             NextQ.Text = "Далее";
-            NextQ.UseVisualStyleBackColor = true;
+            NextQ.UseVisualStyleBackColor = false;
             NextQ.Click += NextQ_Click;
             // 
             // panel1
             // 
+            panel1.BackColor = Color.FromArgb(24, 69, 74);
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(label1);
             panel1.Controls.Add(panel2);
@@ -120,6 +131,7 @@
             // label1
             // 
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(23, 64);
             label1.Name = "label1";
             label1.Size = new Size(193, 48);
@@ -136,6 +148,7 @@
             // 
             // panel3
             // 
+            panel3.BackColor = Color.FromArgb(24, 69, 74);
             panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(resultLabel);
             panel3.Controls.Add(answerButton1);
@@ -149,30 +162,36 @@
             // 
             // btnFInish
             // 
+            btnFInish.BackColor = Color.FromArgb(35, 34, 73);
             btnFInish.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            btnFInish.ForeColor = Color.White;
             btnFInish.Location = new Point(24, 395);
             btnFInish.Name = "btnFInish";
             btnFInish.Size = new Size(199, 41);
             btnFInish.TabIndex = 7;
             btnFInish.Text = "Завершить тренеровку";
-            btnFInish.UseVisualStyleBackColor = true;
+            btnFInish.UseVisualStyleBackColor = false;
             btnFInish.Click += btnFinish_Click;
             // 
             // labelDifficulty
             // 
+            labelDifficulty.BackColor = Color.FromArgb(24, 69, 74);
             labelDifficulty.Dock = DockStyle.Top;
             labelDifficulty.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelDifficulty.ForeColor = Color.White;
             labelDifficulty.Location = new Point(0, 0);
             labelDifficulty.Name = "labelDifficulty";
             labelDifficulty.Size = new Size(800, 79);
             labelDifficulty.TabIndex = 9;
             labelDifficulty.Text = "Сложность";
             labelDifficulty.TextAlign = ContentAlignment.MiddleCenter;
+            labelDifficulty.Click += labelDifficulty_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(24, 69, 74);
             ClientSize = new Size(800, 448);
             Controls.Add(btnFInish);
             Controls.Add(labelDifficulty);

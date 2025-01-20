@@ -70,44 +70,44 @@
             // 
             // radioDivision
             // 
-            radioDivision.Location = new Point(28, 214);
+            radioDivision.ImageAlign = ContentAlignment.BottomCenter;
+            radioDivision.Location = new Point(52, 214);
             radioDivision.Name = "radioDivision";
-            radioDivision.Size = new Size(150, 35);
+            radioDivision.Size = new Size(100, 35);
             radioDivision.TabIndex = 3;
             radioDivision.Text = "Деление";
-            radioDivision.TextAlign = ContentAlignment.MiddleCenter;
             radioDivision.UseVisualStyleBackColor = true;
             // 
             // radioMultiplication
             // 
-            radioMultiplication.Location = new Point(27, 157);
+            radioMultiplication.ImageAlign = ContentAlignment.BottomCenter;
+            radioMultiplication.Location = new Point(51, 157);
             radioMultiplication.Name = "radioMultiplication";
-            radioMultiplication.Size = new Size(150, 35);
+            radioMultiplication.Size = new Size(100, 35);
             radioMultiplication.TabIndex = 2;
             radioMultiplication.Text = "Умножение";
-            radioMultiplication.TextAlign = ContentAlignment.MiddleCenter;
             radioMultiplication.UseVisualStyleBackColor = true;
             // 
             // radioSubtraction
             // 
-            radioSubtraction.Location = new Point(28, 109);
+            radioSubtraction.ImageAlign = ContentAlignment.BottomCenter;
+            radioSubtraction.Location = new Point(52, 109);
             radioSubtraction.Name = "radioSubtraction";
-            radioSubtraction.Size = new Size(150, 35);
+            radioSubtraction.Size = new Size(100, 35);
             radioSubtraction.TabIndex = 1;
             radioSubtraction.Text = "Вычитание";
-            radioSubtraction.TextAlign = ContentAlignment.MiddleCenter;
             radioSubtraction.UseVisualStyleBackColor = true;
             // 
             // radioAddition
             // 
             radioAddition.Checked = true;
-            radioAddition.Location = new Point(28, 59);
+            radioAddition.ImageAlign = ContentAlignment.BottomCenter;
+            radioAddition.Location = new Point(52, 59);
             radioAddition.Name = "radioAddition";
-            radioAddition.Size = new Size(150, 35);
+            radioAddition.Size = new Size(100, 35);
             radioAddition.TabIndex = 0;
             radioAddition.TabStop = true;
             radioAddition.Text = "Сложение";
-            radioAddition.TextAlign = ContentAlignment.MiddleCenter;
             radioAddition.UseVisualStyleBackColor = true;
             // 
             // panel2
@@ -135,33 +135,30 @@
             // radioEasy
             // 
             radioEasy.Checked = true;
-            radioEasy.Location = new Point(43, 59);
+            radioEasy.Location = new Point(68, 59);
             radioEasy.Name = "radioEasy";
-            radioEasy.Size = new Size(121, 49);
+            radioEasy.Size = new Size(83, 49);
             radioEasy.TabIndex = 3;
             radioEasy.TabStop = true;
             radioEasy.Text = "Легкий";
-            radioEasy.TextAlign = ContentAlignment.MiddleCenter;
             radioEasy.UseVisualStyleBackColor = true;
             // 
             // radioMedium
             // 
-            radioMedium.Location = new Point(43, 125);
+            radioMedium.Location = new Point(68, 125);
             radioMedium.Name = "radioMedium";
-            radioMedium.Size = new Size(121, 49);
+            radioMedium.Size = new Size(83, 49);
             radioMedium.TabIndex = 2;
             radioMedium.Text = "Средний";
-            radioMedium.TextAlign = ContentAlignment.MiddleCenter;
             radioMedium.UseVisualStyleBackColor = true;
             // 
             // radioHard
             // 
-            radioHard.Location = new Point(43, 200);
+            radioHard.Location = new Point(68, 200);
             radioHard.Name = "radioHard";
-            radioHard.Size = new Size(121, 49);
+            radioHard.Size = new Size(83, 49);
             radioHard.TabIndex = 1;
             radioHard.Text = "Сложный";
-            radioHard.TextAlign = ContentAlignment.MiddleCenter;
             radioHard.UseVisualStyleBackColor = true;
             // 
             // btnStart
