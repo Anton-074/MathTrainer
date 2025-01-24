@@ -109,11 +109,16 @@ namespace MathTrainer
             {
                 num1 = random.Next(minNumber + 1, maxNumber + 1);
                 num2 = random.Next(minNumber, num1 + 1);
+                
             }
             else
             {
                 num1 = random.Next(minNumberNum1 + 1, maxNumber + 1);
                 num2 = random.Next(minNumberNum2 + 1, num1 + 1);
+                while (IsPrime(num1))
+                {
+                    num1 = random.Next(minNumber + 1, maxNumber + 1);
+                }
             }
 
 
@@ -135,7 +140,7 @@ namespace MathTrainer
                     // Убедимся, что делим на ненулевое число
                     if (num2 == 0) num2 = 2; // Избегаем деления на ноль
 
-                    while (num1 % num2 != 0)
+                    while (num1 % num2 != 0 | num1==num2)
                     {
                         num2 = random.Next(minNumberNum2 + 1, num1 + 1);
                     }
@@ -156,7 +161,15 @@ namespace MathTrainer
             List<int> options = new List<int> { correctAnswer };
             while (options.Count < 3)
             {
-                int randomOption = random.Next(correctAnswer - 5, correctAnswer + 5);
+                int randomOption;
+                if (operation=="division")
+                {
+                    randomOption = random.Next(correctAnswer - 2, correctAnswer + 2);
+                }
+                else
+                {
+                    randomOption = random.Next(correctAnswer - 5, correctAnswer + 5);
+                }
                 if (!options.Contains(randomOption) && randomOption >= 0) // Убедимся, что ответ не повторяется и не отрицательный
                 {
                     options.Add(randomOption);
@@ -219,6 +232,15 @@ namespace MathTrainer
         {
             // Генерируем новый вопрос
             GenerateQuestion();
+        }
+        private bool IsPrime(int number)
+        {
+            if (number <= 1) return false;
+            for (int i = 2; i <= Math.Sqrt(number); i++)
+            {
+                if (number % i == 0) return false;
+            }
+            return true;
         }
         private void btnFinish_Click(object sender, EventArgs e)
         {
