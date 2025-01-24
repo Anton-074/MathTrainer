@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             questionLabel = new Label();
             answerButton1 = new Button();
             resultLabel = new Label();
@@ -38,8 +39,11 @@
             label1 = new Label();
             panel2 = new Panel();
             panel3 = new Panel();
+            labelNumber = new Label();
             btnFInish = new Button();
             labelDifficulty = new Label();
+            timer = new System.Windows.Forms.Timer(components);
+            labelTimer = new Label();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             SuspendLayout();
@@ -60,7 +64,7 @@
             answerButton1.BackColor = Color.FromArgb(35, 34, 73);
             answerButton1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             answerButton1.ForeColor = Color.White;
-            answerButton1.Location = new Point(55, 64);
+            answerButton1.Location = new Point(57, 96);
             answerButton1.Name = "answerButton1";
             answerButton1.Size = new Size(99, 51);
             answerButton1.TabIndex = 2;
@@ -72,7 +76,7 @@
             resultLabel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             resultLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             resultLabel.ForeColor = Color.White;
-            resultLabel.Location = new Point(98, 152);
+            resultLabel.Location = new Point(100, 184);
             resultLabel.Name = "resultLabel";
             resultLabel.Size = new Size(361, 51);
             resultLabel.TabIndex = 3;
@@ -84,7 +88,7 @@
             answerButton2.BackColor = Color.FromArgb(35, 34, 73);
             answerButton2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             answerButton2.ForeColor = Color.White;
-            answerButton2.Location = new Point(228, 64);
+            answerButton2.Location = new Point(230, 96);
             answerButton2.Name = "answerButton2";
             answerButton2.Size = new Size(99, 51);
             answerButton2.TabIndex = 4;
@@ -96,7 +100,7 @@
             answerButton3.BackColor = Color.FromArgb(35, 34, 73);
             answerButton3.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             answerButton3.ForeColor = Color.White;
-            answerButton3.Location = new Point(400, 64);
+            answerButton3.Location = new Point(402, 96);
             answerButton3.Name = "answerButton3";
             answerButton3.Size = new Size(99, 51);
             answerButton3.TabIndex = 5;
@@ -150,6 +154,7 @@
             // 
             panel3.BackColor = Color.FromArgb(24, 69, 74);
             panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(labelNumber);
             panel3.Controls.Add(resultLabel);
             panel3.Controls.Add(answerButton1);
             panel3.Controls.Add(NextQ);
@@ -159,6 +164,18 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(554, 300);
             panel3.TabIndex = 8;
+            // 
+            // labelNumber
+            // 
+            labelNumber.Dock = DockStyle.Top;
+            labelNumber.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelNumber.ForeColor = Color.White;
+            labelNumber.Location = new Point(0, 0);
+            labelNumber.Name = "labelNumber";
+            labelNumber.Size = new Size(552, 40);
+            labelNumber.TabIndex = 7;
+            labelNumber.Text = "Вопрос ";
+            labelNumber.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnFInish
             // 
@@ -185,7 +202,23 @@
             labelDifficulty.TabIndex = 9;
             labelDifficulty.Text = "Сложность";
             labelDifficulty.TextAlign = ContentAlignment.MiddleCenter;
-            labelDifficulty.Click += labelDifficulty_Click;
+            // 
+            // timer
+            // 
+            timer.Enabled = true;
+            timer.Interval = 1000;
+            timer.Tick += timer_Tick;
+            // 
+            // labelTimer
+            // 
+            labelTimer.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelTimer.ForeColor = Color.White;
+            labelTimer.Location = new Point(677, 21);
+            labelTimer.Name = "labelTimer";
+            labelTimer.Size = new Size(100, 35);
+            labelTimer.TabIndex = 10;
+            labelTimer.Text = "00:00";
+            labelTimer.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
@@ -193,6 +226,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(24, 69, 74);
             ClientSize = new Size(800, 448);
+            Controls.Add(labelTimer);
             Controls.Add(btnFInish);
             Controls.Add(labelDifficulty);
             Controls.Add(panel3);
@@ -220,5 +254,8 @@
         private Button btnFInish;
         private Label label1;
         private Label labelDifficulty;
+        private System.Windows.Forms.Timer timer;
+        private Label labelTimer;
+        private Label labelNumber;
     }
 }

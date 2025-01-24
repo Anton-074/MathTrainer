@@ -12,20 +12,36 @@ namespace MathTrainer
         private int maxNumber;
         private int minNumberNum1;
         private int minNumberNum2;
+
         private string operation;
         private string operationRus;
         private string difficultyRus;
 
-        public Form1(int difficulty, int operation)
+        private const int timerTime = 10;
+        private int timerControl=timerTime;
+
+        private int maxCountQuestion= 5;
+        private int countQuestion = 1;
+
+        public Form1(int difficulty, int operation, int maxCountQuestion)
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
-            random = new Random();
             SetOperation(operation, difficulty);
+            this.maxCountQuestion = maxCountQuestion;
+            random = new Random();
             GenerateQuestion();
+            
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //NextQ.Enabled = false;
+            labelNumber.Text = $"Вопрос {countQuestion}/{maxCountQuestion}";
+            this.FormBorderStyle = FormBorderStyle.None;
+            labelTimer.Text = "00:" + timerControl;
+            timer.Start();
         }
 
-        private void SetOperation(int operation, int difficulty)
+        private void SetOperation(int operation, int difficulty)// Устанавливаем 
         {
             switch (difficulty)
             {
@@ -101,7 +117,7 @@ namespace MathTrainer
             labelDifficulty.Text = $"{operationRus} : {difficultyRus}";
         }
 
-        private void GenerateQuestion()
+        private void GenerateQuestion()// Генерируем вопрос
         {
             int num1 = 0;
             int num2 = 0;
@@ -109,7 +125,7 @@ namespace MathTrainer
             {
                 num1 = random.Next(minNumber + 1, maxNumber + 1);
                 num2 = random.Next(minNumber, num1 + 1);
-                
+
             }
             else
             {
@@ -140,7 +156,7 @@ namespace MathTrainer
                     // Убедимся, что делим на ненулевое число
                     if (num2 == 0) num2 = 2; // Избегаем деления на ноль
 
-                    while (num1 % num2 != 0 | num1==num2)
+                    while (num1 % num2 != 0 | num1 == num2) //Число не должно делиться на себя
                     {
                         num2 = random.Next(minNumberNum2 + 1, num1 + 1);
                     }
@@ -155,14 +171,14 @@ namespace MathTrainer
 
 
 
-        private void SetAnswerOptions(int correctAnswer)
+        private void SetAnswerOptions(int correctAnswer)// Устанавливаем варианты ответа на форму
         {
             // Генерируем варианты ответов
             List<int> options = new List<int> { correctAnswer };
             while (options.Count < 3)
             {
                 int randomOption;
-                if (operation=="division")
+                if (operation == "division")
                 {
                     randomOption = random.Next(correctAnswer - 2, correctAnswer + 2);
                 }
@@ -170,7 +186,7 @@ namespace MathTrainer
                 {
                     randomOption = random.Next(correctAnswer - 5, correctAnswer + 5);
                 }
-                if (!options.Contains(randomOption) && randomOption >= 0) // Убедимся, что ответ не повторяется и не отрицательный
+                if (!options.Contains(randomOption) && randomOption > 0) // Убедимся, что ответ не повторяется и не отрицательный
                 {
                     options.Add(randomOption);
                 }
@@ -189,9 +205,9 @@ namespace MathTrainer
 
 
 
-        private void AnswerButton_Click(object sender, EventArgs e)
+        private void AnswerButton_Click(object sender, EventArgs e)// Проверка ответа
         {
-
+            timer.Stop();
             Button clickedButton = sender as Button;
             if (clickedButton != null)
             {
@@ -206,9 +222,52 @@ namespace MathTrainer
                 {
                     resultLabel.Text = $"Неправильно. Правильный ответ: {correctAnswer}";
                     clickedButton.BackColor = System.Drawing.Color.Red;
-
                 }
             }
+        }
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            timerControl--;
+            if( timerControl < 10)
+            {
+                labelTimer.Text = "00:0" + timerControl;
+            }
+            else
+            {
+                labelTimer.Text = "00:" + timerControl;
+            }
+            
+            if(timerControl==0)
+            {
+                BlockAllButtons();
+                resultLabel.Text = $"Время вышло. Правильный ответ: {correctAnswer}";
+                if(int.Parse(answerButton1.Text)==correctAnswer)
+                {
+                    answerButton1.BackColor = System.Drawing.Color.Green;
+                }
+                else
+                {
+                    answerButton1.BackColor = System.Drawing.Color.Red;
+                }
+                if (int.Parse(answerButton2.Text) == correctAnswer)
+                {
+                    answerButton2.BackColor = System.Drawing.Color.Green;
+                }
+                else
+                {
+                    answerButton2.BackColor = System.Drawing.Color.Red;
+                }
+                if (int.Parse(answerButton3.Text) == correctAnswer)
+                {
+                    answerButton3.BackColor = System.Drawing.Color.Green;
+                }
+                else
+                {
+                    answerButton3.BackColor = System.Drawing.Color.Red;
+                }
+                timer.Stop();
+            }
+
         }
         private void ResetButtonColors()
         {
@@ -231,7 +290,13 @@ namespace MathTrainer
         private void NextQ_Click(object sender, EventArgs e)
         {
             // Генерируем новый вопрос
+            //Сюда вписать код для того что бы сравнивал сколько вопросов уже прошло
+            timerControl = timerTime;
+            labelTimer.Text = "00:" + timerControl;
             GenerateQuestion();
+            countQuestion++;
+            labelNumber.Text = $"Вопрос {countQuestion}/{maxCountQuestion}";
+            timer.Start();
         }
         private bool IsPrime(int number)
         {
@@ -249,14 +314,10 @@ namespace MathTrainer
             Form2 form2 = new Form2(); // Создаем экземпляр Form2
             form2.Show(); // Показываем Form2
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
+        
 
-        }
+        
 
-        private void labelDifficulty_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
