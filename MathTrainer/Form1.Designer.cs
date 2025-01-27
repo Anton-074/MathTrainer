@@ -36,7 +36,7 @@
             answerButton3 = new Button();
             NextQ = new Button();
             panel1 = new Panel();
-            label1 = new Label();
+            label = new Label();
             panel2 = new Panel();
             panel3 = new Panel();
             labelNumber = new Label();
@@ -124,7 +124,7 @@
             // 
             panel1.BackColor = Color.FromArgb(24, 69, 74);
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(label1);
+            panel1.Controls.Add(label);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(questionLabel);
             panel1.Location = new Point(0, 81);
@@ -132,16 +132,16 @@
             panel1.Size = new Size(246, 300);
             panel1.TabIndex = 7;
             // 
-            // label1
+            // label
             // 
-            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(23, 64);
-            label1.Name = "label1";
-            label1.Size = new Size(193, 48);
-            label1.TabIndex = 9;
-            label1.Text = "Решите пример";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label.ForeColor = Color.White;
+            label.Location = new Point(23, 64);
+            label.Name = "label";
+            label.Size = new Size(193, 48);
+            label.TabIndex = 9;
+            label.Text = "Решите пример";
+            label.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -252,7 +252,7 @@
         private Panel panel2;
         private Panel panel3;
         private Button btnFInish;
-        private Label label1;
+        private Label label;
         private Label labelDifficulty;
         private System.Windows.Forms.Timer timer;
         private Label labelTimer;

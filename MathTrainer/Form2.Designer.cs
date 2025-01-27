@@ -67,7 +67,6 @@
             // 
             // label1
             // 
-            label1.Dock = DockStyle.Top;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             label1.ForeColor = Color.White;
             label1.Location = new Point(0, 0);
@@ -189,6 +188,7 @@
             // btnStart
             // 
             btnStart.BackColor = Color.FromArgb(35, 34, 73);
+            btnStart.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             btnStart.ForeColor = Color.White;
             btnStart.Location = new Point(536, 404);
             btnStart.Name = "btnStart";
@@ -201,6 +201,7 @@
             // btnExid
             // 
             btnExid.BackColor = Color.FromArgb(35, 34, 73);
+            btnExid.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             btnExid.ForeColor = Color.White;
             btnExid.Location = new Point(243, 404);
             btnExid.Name = "btnExid";

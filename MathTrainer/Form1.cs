@@ -22,6 +22,7 @@ namespace MathTrainer
 
         private int maxCountQuestion= 5;
         private int countQuestion = 1;
+        private int countCorrectAnswers=0;
 
         public Form1(int difficulty, int operation, int maxCountQuestion)
         {
@@ -216,6 +217,7 @@ namespace MathTrainer
                 if (selectedAnswer == correctAnswer)
                 {
                     resultLabel.Text = "Правильно!";
+                    countCorrectAnswers++;
                     clickedButton.BackColor = System.Drawing.Color.Green;
                 }
                 else
@@ -290,13 +292,41 @@ namespace MathTrainer
         private void NextQ_Click(object sender, EventArgs e)
         {
             // Генерируем новый вопрос
-            //Сюда вписать код для того что бы сравнивал сколько вопросов уже прошло
-            timerControl = timerTime;
-            labelTimer.Text = "00:" + timerControl;
-            GenerateQuestion();
+            
+            
             countQuestion++;
-            labelNumber.Text = $"Вопрос {countQuestion}/{maxCountQuestion}";
-            timer.Start();
+            if(countQuestion>maxCountQuestion)
+            {
+                answerButton1.Visible = false;
+                answerButton2.Visible = false;
+                answerButton3.Visible = false;
+                NextQ.Visible = false;
+                resultLabel.Dock = DockStyle.Fill;
+                label.Visible = false;
+                questionLabel.Dock = DockStyle.Fill;
+                resultLabel.Text = $"Вы ответили правильно на {countCorrectAnswers} вопросов из {maxCountQuestion}";
+                if (countCorrectAnswers < maxCountQuestion/2)
+                {
+                    questionLabel.Text = "\nНеобходимо тренироваться";
+                }
+                else if(countCorrectAnswers > maxCountQuestion / 2 && countCorrectAnswers < maxCountQuestion / 1.4)
+                {
+                    questionLabel.Text = "\nНеплохо, хороший результат";
+                }
+                else if(countCorrectAnswers > maxCountQuestion / 1.4)
+                {
+                    questionLabel.Text = "\nОтличный результат, Молодец!";
+                }
+            }
+            else
+            {
+                timerControl = timerTime;
+                labelTimer.Text = "00:" + timerControl;
+                GenerateQuestion();
+                labelNumber.Text = $"Вопрос {countQuestion}/{maxCountQuestion}";
+                timer.Start();
+            }
+            
         }
         private bool IsPrime(int number)
         {
