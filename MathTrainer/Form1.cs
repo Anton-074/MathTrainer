@@ -231,7 +231,7 @@ namespace MathTrainer
                 }
                 else if(operation == "degree")
                 {
-                    int rand = random.Next(1, 3);
+                    int rand = random.Next(0, 3);
                     if (rand == 1)
                     {
                         randomOption = random.Next(correctAnswer - 3, correctAnswer + 3);
@@ -243,6 +243,28 @@ namespace MathTrainer
                     else 
                     {
                         randomOption = correctAnswer + 10;
+                    }
+                }
+                else if(operation == "multiplication" & difficultyRus != "Легкий уровень")
+                {
+                    int rand = random.Next(0, 4);
+                    switch (rand)
+                    {
+                        case 0:
+                            randomOption = correctAnswer - 10;
+                            break;
+                        case 1:
+                            randomOption = correctAnswer + 10;
+                            break;
+                        case 2:
+                            randomOption = correctAnswer - 20;
+                            break;
+                        case 3:
+                            randomOption = correctAnswer + 20;
+                            break;
+                        default:
+                            randomOption = correctAnswer + 20;
+                            break;
                     }
                 }
                 else
