@@ -6,20 +6,27 @@ namespace MathTrainer
 {
     public partial class Form1 : Form
     {
+        //Для генерации чисел
         private Random random;
         private int correctAnswer;
+        private int lastAnswer=0;
         private int minNumber;
         private int maxNumber;
         private int minNumberNum1;
         private int minNumberNum2;
+        private int minDegree;
+        private int maxDegree;
 
+        //Для генерации сложности операций
         private string operation;
         private string operationRus;
         private string difficultyRus;
 
-        private const int timerTime = 10;
+        //Для таймера
+        private const int timerTime = 10;//Время на ответ
         private int timerControl=timerTime;
 
+        //Для вопросов
         private int maxCountQuestion= 5;
         private int countQuestion = 1;
         private int countCorrectAnswers=0;
@@ -40,6 +47,7 @@ namespace MathTrainer
             this.FormBorderStyle = FormBorderStyle.None;
             labelTimer.Text = "00:" + timerControl;
             timer.Start();
+            NextQ.Visible = false;
         }
 
         private void SetOperation(int operation, int difficulty)// Устанавливаем 
@@ -114,6 +122,35 @@ namespace MathTrainer
                             break;
                     }
                     break;
+                case 5:
+                    this.operation = "degree";
+                    this.operationRus = "Степень числа";
+                    
+                    switch (difficulty)
+                    {
+                        case 1:
+                            minNumber = 1;
+                            maxNumber = 5;
+
+                            minDegree = 0;
+                            maxDegree = 3;
+                            break;
+                        case 2:
+                            minNumber = 2;
+                            maxNumber = 8;
+
+                            minDegree = 3;
+                            maxDegree = 4;
+                            break;
+                        case 3:
+                            minNumber = 8;
+                            maxNumber = 15;
+
+                            minDegree = 2;
+                            maxDegree = 3;
+                            break;
+                    }
+                    break;
             }
             labelDifficulty.Text = $"{operationRus} : {difficultyRus}";
         }
@@ -122,11 +159,16 @@ namespace MathTrainer
         {
             int num1 = 0;
             int num2 = 0;
+            
             if (operation != "division")
             {
                 num1 = random.Next(minNumber + 1, maxNumber + 1);
                 num2 = random.Next(minNumber, num1 + 1);
-
+                if (operation == "degree")
+                {
+                    num1 = random.Next(minNumber + 1, maxNumber + 1);
+                    num2 = random.Next(minDegree, maxDegree);
+                }
             }
             else
             {
@@ -164,6 +206,10 @@ namespace MathTrainer
                     correctAnswer = num1 / num2;
                     questionLabel.Text = $"{num1} / {num2} = ?";
                     break;
+                case "degree":
+                    correctAnswer = (int)Math.Pow(num1, num2);
+                    questionLabel.Text = $"{num1}^{num2} = ?";
+                    break;
 
             }
             resultLabel.Text = "";
@@ -182,6 +228,22 @@ namespace MathTrainer
                 if (operation == "division")
                 {
                     randomOption = random.Next(correctAnswer - 2, correctAnswer + 2);
+                }
+                else if(operation == "degree")
+                {
+                    int rand = random.Next(1, 3);
+                    if (rand == 1)
+                    {
+                        randomOption = random.Next(correctAnswer - 3, correctAnswer + 3);
+                    }
+                    else if(rand == 3)
+                    {
+                        randomOption = correctAnswer - 10;
+                    }
+                    else 
+                    {
+                        randomOption = correctAnswer + 10;
+                    }
                 }
                 else
                 {
@@ -209,6 +271,7 @@ namespace MathTrainer
         private void AnswerButton_Click(object sender, EventArgs e)// Проверка ответа
         {
             timer.Stop();
+            NextQ.Visible = true;
             Button clickedButton = sender as Button;
             if (clickedButton != null)
             {
@@ -241,6 +304,7 @@ namespace MathTrainer
             
             if(timerControl==0)
             {
+                NextQ.Visible = true;
                 BlockAllButtons();
                 resultLabel.Text = $"Время вышло. Правильный ответ: {correctAnswer}";
                 if(int.Parse(answerButton1.Text)==correctAnswer)
@@ -295,7 +359,8 @@ namespace MathTrainer
             
             
             countQuestion++;
-            if(countQuestion>maxCountQuestion)
+            NextQ.Visible = false;
+            if (countQuestion>maxCountQuestion)
             {
                 answerButton1.Visible = false;
                 answerButton2.Visible = false;

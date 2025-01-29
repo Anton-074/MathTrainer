@@ -30,15 +30,16 @@ namespace MathTrainer
             else if (radioSubtraction.Checked) operation = 2; // Вычитание
             else if (radioMultiplication.Checked) operation = 3; // Умножение
             else if (radioDivision.Checked) operation = 4; // Деление
+            else if(radioDegree.Checked) operation = 5; //Степень
 
             // Определяем уровень сложности
             if (radioEasy.Checked) difficulty = 1; // Легкий
             else if (radioMedium.Checked) difficulty = 2; // Средний
             else if (radioHard.Checked) difficulty = 3; // Сложный
 
-            if (radioButton10.Checked) maxCountQuestion = 10;
-            else if (radioButton15.Checked) maxCountQuestion = 15;
-            else if (radioButton20.Checked) maxCountQuestion = 20;
+            if (radioButton10.Checked) maxCountQuestion = 10; //10 вопросов
+            else if (radioButton15.Checked) maxCountQuestion = 15; //15 вопросов
+            else if (radioButton20.Checked) maxCountQuestion = 20; //20 вопросов
 
 
             Form1 trainingForm = new Form1(difficulty, operation, maxCountQuestion);
