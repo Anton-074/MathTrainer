@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace MathTrainer
 {
+    //добавить сравнение, уравнение, 
     public partial class Form2 : Form
     {
         public Form2()
@@ -17,8 +18,6 @@ namespace MathTrainer
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
         }
-
-
         private void btnStart_Click(object sender, EventArgs e)
         {
             int operation = 0;
@@ -31,6 +30,7 @@ namespace MathTrainer
             else if (radioMultiplication.Checked) operation = 3; // Умножение
             else if (radioDivision.Checked) operation = 4; // Деление
             else if(radioDegree.Checked) operation = 5; //Степень
+            else if(radioComparison.Checked) operation = 6;
 
             // Определяем уровень сложности
             if (radioEasy.Checked) difficulty = 1; // Легкий

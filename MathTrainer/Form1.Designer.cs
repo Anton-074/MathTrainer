@@ -63,7 +63,7 @@
             // 
             answerButton1.BackColor = Color.FromArgb(35, 34, 73);
             answerButton1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            answerButton1.ForeColor = Color.White;
+            answerButton1.ForeColor = Color.Transparent;
             answerButton1.Location = new Point(57, 96);
             answerButton1.Name = "answerButton1";
             answerButton1.Size = new Size(99, 51);

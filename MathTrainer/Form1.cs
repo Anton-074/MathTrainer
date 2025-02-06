@@ -151,6 +151,26 @@ namespace MathTrainer
                             break;
                     }
                     break;
+                case 6:
+                    this.operation = "comparison";
+                    this.operationRus = "Сравнение";
+
+                    switch (difficulty)
+                    {
+                        case 1:
+                            minNumber = 1;
+                            maxNumber = 20;
+                            break;
+                        case 2:
+                            minNumber = 15;
+                            maxNumber = 45;
+                            break;
+                        case 3:
+                            minNumber = 45;
+                            maxNumber = 100;
+                            break;
+                    }
+                    break;
             }
             labelDifficulty.Text = $"{operationRus} : {difficultyRus}";
         }
@@ -210,6 +230,23 @@ namespace MathTrainer
                     correctAnswer = (int)Math.Pow(num1, num2);
                     questionLabel.Text = $"{num1}^{num2} = ?";
                     break;
+                case "comparison":
+                   /* switch (difficultyRus)
+                    {
+                        case "Легкий уровень":
+                            minNumber = 1;
+                            maxNumber = 20;
+                            break;
+                        case 2:
+                            minNumber = 15;
+                            maxNumber = 45;
+                            break;
+                        case 3:
+                            minNumber = 45;
+                            maxNumber = 100;
+                            break;
+                    }
+                    break;*///доделать
 
             }
             resultLabel.Text = "";

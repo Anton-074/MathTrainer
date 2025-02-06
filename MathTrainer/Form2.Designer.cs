@@ -48,6 +48,7 @@
             radioButton10 = new RadioButton();
             radioButton15 = new RadioButton();
             radioButton20 = new RadioButton();
+            radioComparison = new RadioButton();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -56,6 +57,7 @@
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(radioComparison);
             panel1.Controls.Add(radioDegree);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(radioDivision);
@@ -72,11 +74,11 @@
             radioDegree.Font = new Font("Segoe UI", 12F);
             radioDegree.ForeColor = Color.White;
             radioDegree.ImageAlign = ContentAlignment.BottomCenter;
-            radioDegree.Location = new Point(230, 66);
+            radioDegree.Location = new Point(186, 66);
             radioDegree.Name = "radioDegree";
-            radioDegree.Size = new Size(123, 35);
+            radioDegree.Size = new Size(186, 35);
             radioDegree.TabIndex = 5;
-            radioDegree.Text = "Степень";
+            radioDegree.Text = "Возведение в степень";
             radioDegree.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -96,7 +98,7 @@
             radioDivision.Font = new Font("Segoe UI", 12F);
             radioDivision.ForeColor = Color.White;
             radioDivision.ImageAlign = ContentAlignment.BottomCenter;
-            radioDivision.Location = new Point(42, 207);
+            radioDivision.Location = new Point(27, 207);
             radioDivision.Name = "radioDivision";
             radioDivision.Size = new Size(123, 35);
             radioDivision.TabIndex = 3;
@@ -108,7 +110,7 @@
             radioMultiplication.Font = new Font("Segoe UI", 12F);
             radioMultiplication.ForeColor = Color.White;
             radioMultiplication.ImageAlign = ContentAlignment.BottomCenter;
-            radioMultiplication.Location = new Point(42, 157);
+            radioMultiplication.Location = new Point(27, 157);
             radioMultiplication.Name = "radioMultiplication";
             radioMultiplication.Size = new Size(123, 35);
             radioMultiplication.TabIndex = 2;
@@ -120,7 +122,7 @@
             radioSubtraction.Font = new Font("Segoe UI", 12F);
             radioSubtraction.ForeColor = Color.White;
             radioSubtraction.ImageAlign = ContentAlignment.BottomCenter;
-            radioSubtraction.Location = new Point(42, 115);
+            radioSubtraction.Location = new Point(27, 115);
             radioSubtraction.Name = "radioSubtraction";
             radioSubtraction.Size = new Size(123, 35);
             radioSubtraction.TabIndex = 1;
@@ -133,7 +135,7 @@
             radioAddition.Font = new Font("Segoe UI", 12F);
             radioAddition.ForeColor = Color.White;
             radioAddition.ImageAlign = ContentAlignment.BottomCenter;
-            radioAddition.Location = new Point(42, 66);
+            radioAddition.Location = new Point(27, 66);
             radioAddition.Name = "radioAddition";
             radioAddition.Size = new Size(123, 35);
             radioAddition.TabIndex = 0;
@@ -297,6 +299,18 @@
             radioButton20.Text = "20";
             radioButton20.UseVisualStyleBackColor = true;
             // 
+            // radioComparison
+            // 
+            radioComparison.Font = new Font("Segoe UI", 12F);
+            radioComparison.ForeColor = Color.White;
+            radioComparison.ImageAlign = ContentAlignment.BottomCenter;
+            radioComparison.Location = new Point(186, 115);
+            radioComparison.Name = "radioComparison";
+            radioComparison.Size = new Size(186, 35);
+            radioComparison.TabIndex = 6;
+            radioComparison.Text = "Сравнение";
+            radioComparison.UseVisualStyleBackColor = true;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -341,5 +355,6 @@
         private RadioButton radioButton15;
         private RadioButton radioButton20;
         private RadioButton radioDegree;
+        private RadioButton radioComparison;
     }
 }
