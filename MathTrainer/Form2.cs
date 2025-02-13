@@ -29,8 +29,7 @@ namespace MathTrainer
             else if (radioSubtraction.Checked) operation = 2; // Вычитание
             else if (radioMultiplication.Checked) operation = 3; // Умножение
             else if (radioDivision.Checked) operation = 4; // Деление
-            else if(radioDegree.Checked) operation = 5; //Степень
-            else if(radioComparison.Checked) operation = 6;
+            else if (radioDegree.Checked) operation = 5; //Степень
 
             // Определяем уровень сложности
             if (radioEasy.Checked) difficulty = 1; // Легкий
@@ -50,6 +49,13 @@ namespace MathTrainer
         private void btnExid_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormMiniGames formMiniGames = new FormMiniGames();
+            formMiniGames.Show();
+            this.Hide();
         }
     }
 }

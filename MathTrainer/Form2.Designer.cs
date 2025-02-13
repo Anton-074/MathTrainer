@@ -48,7 +48,7 @@
             radioButton10 = new RadioButton();
             radioButton15 = new RadioButton();
             radioButton20 = new RadioButton();
-            radioComparison = new RadioButton();
+            button1 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -57,7 +57,6 @@
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(radioComparison);
             panel1.Controls.Add(radioDegree);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(radioDivision);
@@ -207,7 +206,7 @@
             btnStart.BackColor = Color.FromArgb(35, 34, 73);
             btnStart.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             btnStart.ForeColor = Color.White;
-            btnStart.Location = new Point(536, 404);
+            btnStart.Location = new Point(530, 436);
             btnStart.Name = "btnStart";
             btnStart.Size = new Size(161, 60);
             btnStart.TabIndex = 6;
@@ -220,7 +219,7 @@
             btnExid.BackColor = Color.FromArgb(35, 34, 73);
             btnExid.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             btnExid.ForeColor = Color.White;
-            btnExid.Location = new Point(243, 404);
+            btnExid.Location = new Point(242, 436);
             btnExid.Name = "btnExid";
             btnExid.Size = new Size(161, 60);
             btnExid.TabIndex = 7;
@@ -299,24 +298,23 @@
             radioButton20.Text = "20";
             radioButton20.UseVisualStyleBackColor = true;
             // 
-            // radioComparison
+            // button1
             // 
-            radioComparison.Font = new Font("Segoe UI", 12F);
-            radioComparison.ForeColor = Color.White;
-            radioComparison.ImageAlign = ContentAlignment.BottomCenter;
-            radioComparison.Location = new Point(186, 115);
-            radioComparison.Name = "radioComparison";
-            radioComparison.Size = new Size(186, 35);
-            radioComparison.TabIndex = 6;
-            radioComparison.Text = "Сравнение";
-            radioComparison.UseVisualStyleBackColor = true;
+            button1.Location = new Point(431, 406);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 10;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(24, 69, 74);
-            ClientSize = new Size(938, 514);
+            ClientSize = new Size(938, 546);
+            Controls.Add(button1);
             Controls.Add(panel3);
             Controls.Add(label3);
             Controls.Add(btnExid);
@@ -355,6 +353,6 @@
         private RadioButton radioButton15;
         private RadioButton radioButton20;
         private RadioButton radioDegree;
-        private RadioButton radioComparison;
+        private Button button1;
     }
 }
