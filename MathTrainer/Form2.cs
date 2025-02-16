@@ -53,8 +53,8 @@ namespace MathTrainer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormMiniGames formMiniGames = new FormMiniGames();
-            formMiniGames.Show();
+            FormMiniGames2 formMiniGames2 = new FormMiniGames2();
+            formMiniGames2.Show();
             this.Hide();
         }
     }

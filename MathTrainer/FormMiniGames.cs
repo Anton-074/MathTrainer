@@ -58,7 +58,7 @@ namespace MathTrainer
 
             if (answer == btn.Tag.ToString())
             {
-                MessageBox.Show("Правильно!");//
+                MessageBox.Show("Правильно!");
                 correctAnswers++;
             }
             else
