@@ -7,21 +7,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace MathTrainer
 {
     public partial class FormMiniGames : Form
     {
-        private int correctAnswers = 0;
-        private int totalQuestions = 0;
+        Random rand = new Random();
+        List<string> options = new List<string> { };
+        private int correctAnswers = 0; 
+        private int currentAnswer; // Правильный ответ
+        private int MaxCountCorrected;
+        private int countCorrected = 0;
+        private int wrongAnswers = 0;
+
+        private int count = 0;
         public FormMiniGames()
         {
+            
+            GenerateOptions();
+            MessageBox.Show("Скомпилировалось");
             InitializeComponent();
             InitializeMaze();
+            
         }
         private void InitializeMaze()
         {
-            Random rand = new Random();
+            MaxCountCorrected = rand.Next(7, 15);
+            currentAnswer = rand.Next(5, 10);
+            labelTop.Text += $"{currentAnswer} \nкол-во правильных ответов = {MaxCountCorrected}"; 
             for (int i = 0; i < 5; i++)
             {
                 for (int j = 0; j < 5; j++)
@@ -29,18 +43,39 @@ namespace MathTrainer
                     Button btn = new Button();
                     btn.Dock = DockStyle.Fill;
                     btn.Text = GenerateMathQuestion(rand);
-                    btn.Tag = CalculateAnswer(btn.Text).ToString();
+                    btn.Tag = CalculateAnswer(btn.Text);
                     btn.Click += Button_Click;
                     tableLayoutPanel1.Controls.Add(btn, j, i);
                 }
             }
+
+
         }
 
         private string GenerateMathQuestion(Random rand)
         {
+            return options[count++];
+
+        }
+        private void GenerateOptions()
+        {
             int num1 = rand.Next(1, 10);
             int num2 = rand.Next(1, 10);
-            return $"{num1} + {num2} = ?";
+            while (options.Count < 25)
+            {
+                if (countCorrected <= MaxCountCorrected)
+                {
+                    countCorrected++;
+                    while (num1 + num2 != currentAnswer)
+                    {
+                        num1 = rand.Next(1, 10);
+                        num2 = rand.Next(1, 10);
+                    }
+                }
+                options.Add($"{num1} + {num2} = ?");
+            }
+
+            options = options.OrderBy(x => rand.Next()).ToList();
         }
 
         private int CalculateAnswer(string question)
@@ -54,25 +89,33 @@ namespace MathTrainer
         private void Button_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
-            string answer = Microsoft.VisualBasic.Interaction.InputBox("Введите ваш ответ:", "Ответ на вопрос", "");
-
-            if (answer == btn.Tag.ToString())
+            if (currentAnswer == (int)(btn.Tag))
             {
-                MessageBox.Show("Правильно!");
+                btn.BackColor = Color.Green;
                 correctAnswers++;
             }
             else
             {
-                MessageBox.Show($"Неправильно! Правильный ответ: {btn.Tag}");
+                wrongAnswers++;
+                btn.BackColor = Color.Red;
             }
 
-            totalQuestions++;
             btn.Enabled = false; // Деактивируем кнопку после ответа
+            IsWin();
 
-            if (totalQuestions == 25)
+        }
+        private void IsWin()
+        {
+            if (correctAnswers == MaxCountCorrected)
             {
-                MessageBox.Show($"Игра окончена! Правильных ответов: {correctAnswers}/25");
+                MessageBox.Show("Победа!");
+                this.Hide();
             }
+            else if (wrongAnswers == 5)
+            {
+                MessageBox.Show("Поражение!");
+            }
+
         }
     }
 }

@@ -150,7 +150,6 @@ namespace MathTrainer
                 {
                     GameOver = true;
                 }
-
             }
         }
         /*
@@ -203,7 +202,7 @@ namespace MathTrainer
                 }
 
             }
-
+            int first=-1;
             // Подсвечиваем смежные ячейки и открываем их
             for (int i = -1; i <= 1; i++)
             {
@@ -211,12 +210,22 @@ namespace MathTrainer
                 {
                     if (Math.Abs(i) + Math.Abs(j) == 1) // Только смежные ячейки 
                     {
+                        if(first <0)
+                        {
+                            first = 1;
+
+                        }
                         int newRow = currentRow + i;
                         int newCol = currentCol + j;
                         if (IsInBounds(newRow, newCol))
                         {
+                            if(first <0)
+                            {
+                                
+                            }
                             buttons[newRow, newCol].BackColor = Color.Yellow;
                             buttons[newRow, newCol].Enabled = true;
+
                         }
                     }
                 }
