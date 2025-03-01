@@ -28,50 +28,78 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tableLayoutPanel1 = new TableLayoutPanel();
+            components = new System.ComponentModel.Container();
+            tableLayoutPanel = new TableLayoutPanel();
             labelTop = new Label();
+            labelTimer = new Label();
+            timer = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanel
             // 
-            tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            tableLayoutPanel1.ColumnCount = 5;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 48.3660126F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 51.6339874F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 82F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 75F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 68F));
-            tableLayoutPanel1.Dock = DockStyle.Bottom;
-            tableLayoutPanel1.Location = new Point(0, 80);
-            tableLayoutPanel1.Margin = new Padding(1);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 5;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 73F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 76F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 65F));
-            tableLayoutPanel1.Size = new Size(379, 368);
-            tableLayoutPanel1.TabIndex = 0;
+            tableLayoutPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            tableLayoutPanel.BackColor = Color.FromArgb(24, 69, 74);
+            tableLayoutPanel.ColumnCount = 5;
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel.Dock = DockStyle.Bottom;
+            tableLayoutPanel.ForeColor = Color.Transparent;
+            tableLayoutPanel.Location = new Point(0, 93);
+            tableLayoutPanel.Margin = new Padding(1);
+            tableLayoutPanel.Name = "tableLayoutPanel";
+            tableLayoutPanel.RightToLeft = RightToLeft.Yes;
+            tableLayoutPanel.RowCount = 5;
+            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel.Size = new Size(605, 472);
+            tableLayoutPanel.TabIndex = 0;
             // 
             // labelTop
             // 
-            labelTop.Dock = DockStyle.Top;
+            labelTop.BackColor = Color.FromArgb(24, 69, 74);
+            labelTop.Dock = DockStyle.Left;
             labelTop.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelTop.ForeColor = Color.White;
             labelTop.Location = new Point(0, 0);
             labelTop.Name = "labelTop";
-            labelTop.Size = new Size(379, 79);
+            labelTop.Size = new Size(484, 93);
             labelTop.TabIndex = 1;
             labelTop.Text = "Необходимо найти выражение равное ";
             labelTop.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // labelTimer
+            // 
+            labelTimer.BackColor = Color.FromArgb(24, 69, 74);
+            labelTimer.Dock = DockStyle.Right;
+            labelTimer.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelTimer.ForeColor = Color.White;
+            labelTimer.Location = new Point(482, 0);
+            labelTimer.Name = "labelTimer";
+            labelTimer.Size = new Size(123, 93);
+            labelTimer.TabIndex = 2;
+            labelTimer.Text = "00:00";
+            labelTimer.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // timer
+            // 
+            timer.Interval = 1000;
+            timer.Tick += timer_Tick;
             // 
             // FormMiniGames
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(379, 448);
+            BackColor = Color.FromArgb(255, 192, 128);
+            ClientSize = new Size(605, 565);
+            Controls.Add(labelTimer);
             Controls.Add(labelTop);
-            Controls.Add(tableLayoutPanel1);
+            Controls.Add(tableLayoutPanel);
             Name = "FormMiniGames";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormMiniGames";
@@ -80,7 +108,9 @@
 
         #endregion
 
-        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel tableLayoutPanel;
         private Label labelTop;
+        private Label labelTimer;
+        private System.Windows.Forms.Timer timer;
     }
 }

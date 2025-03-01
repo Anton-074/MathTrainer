@@ -48,6 +48,7 @@ namespace MathTrainer
                         FlatStyle = FlatStyle.Flat
                     };
                     buttons[i, j].Click += Button_Click;
+                    buttons[i, j].Visible = false;
                     Controls.Add(buttons[i, j]);
 
                 }
@@ -76,6 +77,9 @@ namespace MathTrainer
             buttons[0, 0].Enabled = true;
             buttons[0, 1].Enabled = true;
             buttons[1, 0].Enabled = true;
+            buttons[0, 0].Visible = true;
+            buttons[0, 1].Visible = true;
+            buttons[1, 0].Visible = true;
         }
 
         private void GenerateLocationCurrenResult()
@@ -189,8 +193,59 @@ namespace MathTrainer
                 Application.Exit();
             }
         }
-
         private void HighlightAdjacentCells(Button clickedButton)
+        {
+            // Сбрасываем цвета
+            foreach (var button in buttons)
+            {
+                button.Enabled = false;
+                if (button.BackColor == Color.Yellow)
+                {
+                    button.BackColor = System.Drawing.Color.Gray;
+                }
+            }
+
+            // Подсвечиваем смежные ячейки и открываем их
+            for (int i = -1; i <= 1; i++)
+            {
+                for (int j = -1; j <= 1; j++)
+                {
+                    if (Math.Abs(i) + Math.Abs(j) == 1) // Только смежные ячейки 
+                    {
+                        int newRow = currentRow + i;
+                        int newCol = currentCol + j;
+                        if (IsInBounds(newRow, newCol))
+                        {
+                            // Генерируем правильный ответ для текущей ячейки
+                            int buttonResult = (int)buttons[newRow, newCol].Tag; // Приводим Tag к int
+                            if (buttonResult == currentResult)
+                            {
+                                buttons[newRow, newCol].BackColor = Color.Yellow;
+                                buttons[newRow, newCol].Enabled = true;
+                                buttons[newRow, newCol].Visible = true;
+                            }
+                            else
+                            {
+                                // Генерируем неправильный ответ
+                                int wrongAnswer;
+                                do
+                                {
+                                    int a = new Random().Next(1, 10);
+                                    int b = new Random().Next(1, 10);
+                                    wrongAnswer = a + b;
+                                } while (wrongAnswer == currentResult); // Убедитесь, что неправильный ответ не совпадает с правильным
+
+                                buttons[newRow, newCol].Text = $"{wrongAnswer}"; // Устанавливаем неправильный ответ
+                                buttons[newRow, newCol].Tag = wrongAnswer; // Сохраняем неправильный ответ в Tag
+                                buttons[newRow, newCol].BackColor = Color.Yellow;
+                                buttons[newRow, newCol].Enabled = true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        /*private void HighlightAdjacentCells(Button clickedButton)
         {
             // Сбрасываем цвета
             foreach (var button in buttons)
@@ -219,7 +274,7 @@ namespace MathTrainer
                         int newCol = currentCol + j;
                         if (IsInBounds(newRow, newCol))
                         {
-                            if(first <0)
+                            /*if(first <0)
                             {
                                 
                             }
@@ -230,7 +285,7 @@ namespace MathTrainer
                     }
                 }
             }
-        }
+        }*/
 
         private bool IsInBounds(int row, int col)
         {
