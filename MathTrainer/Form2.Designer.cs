@@ -48,8 +48,8 @@
             radioButton10 = new RadioButton();
             radioButton15 = new RadioButton();
             radioButton20 = new RadioButton();
-            button1 = new Button();
             panel4 = new Panel();
+            button1 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -234,9 +234,9 @@
             label3.Dock = DockStyle.Top;
             label3.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(0, 0);
+            label3.Location = new Point(10, 10);
             label3.Name = "label3";
-            label3.Size = new Size(858, 62);
+            label3.Size = new Size(838, 62);
             label3.TabIndex = 8;
             label3.Text = "Тренажер по математике";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -300,28 +300,29 @@
             radioButton20.Text = "20";
             radioButton20.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            button1.BackColor = Color.Transparent;
-            button1.Dock = DockStyle.Fill;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(0, 0);
-            button1.Name = "button1";
-            button1.Size = new Size(858, 81);
-            button1.TabIndex = 10;
-            button1.Text = "Математический лабиринт";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
             // panel4
             // 
             panel4.Controls.Add(button1);
             panel4.Location = new Point(0, 395);
             panel4.Name = "panel4";
+            panel4.Padding = new Padding(10);
             panel4.Size = new Size(858, 81);
             panel4.TabIndex = 11;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(24, 69, 74);
+            button1.Dock = DockStyle.Fill;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(10, 10);
+            button1.Name = "button1";
+            button1.Size = new Size(838, 61);
+            button1.TabIndex = 0;
+            button1.Text = "Математическая игра";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // Form2
             // 
@@ -337,6 +338,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "Form2";
+            Padding = new Padding(10);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
             panel1.ResumeLayout(false);
@@ -369,7 +371,7 @@
         private RadioButton radioButton15;
         private RadioButton radioButton20;
         private RadioButton radioDegree;
-        private Button button1;
         private Panel panel4;
+        private Button button1;
     }
 }

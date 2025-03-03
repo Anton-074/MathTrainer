@@ -17,8 +17,8 @@ namespace MathTrainer
         private int wrongAnswers = 0;
 
         private int seconds = 0;
-        private int Minuts=0;
-        private int controlMinunts=0;
+        private int Minuts = 0;
+        private int controlMinunts = 0;
 
         private int count = 0;
 
@@ -31,7 +31,7 @@ namespace MathTrainer
             InitializeMaze();
             timer.Start();
             labelTop.Text += $"{currentAnswer} \nкол-во правильных ответов = {MaxCountCorrected}";
-            
+
         }
 
         private void InitializeMaze()
@@ -132,10 +132,20 @@ namespace MathTrainer
         {
             if (correctAnswers == MaxCountCorrected)
             {
-                
+
                 timer.Stop();
-                MessageBox.Show($"Победа! Ваше время  0{Minuts}:{seconds}");
-                this.Hide();
+                Label lab = new Label
+                {
+                    Text = $"Победа! Ваше время  0{Minuts}:{seconds}",
+                    Dock = DockStyle.Fill,
+                    BackColor = Color.Transparent,
+                    ForeColor = Color.White,
+                    TextAlign = ContentAlignment.MiddleCenter
+                };
+                tableLayoutPanel.Visible = false;
+                panelFill.Controls.Add( lab );
+                //MessageBox.Show($"Победа! Ваше время  0{Minuts}:{seconds}");
+                //this.Hide();
             }
             else if (wrongAnswers == 5)
             {
@@ -147,7 +157,7 @@ namespace MathTrainer
         private void timer_Tick(object sender, EventArgs e)
         {
             seconds++;
-            if(seconds== 60)
+            if (seconds == 60)
             {
                 seconds = 0;
                 Minuts++;
@@ -156,10 +166,17 @@ namespace MathTrainer
             {
                 labelTimer.Text = $"0{Minuts}:0{seconds}";
             }
-            else if(seconds >= 10 && seconds <60)
+            else if (seconds >= 10 && seconds < 60)
             {
                 labelTimer.Text = $"0{Minuts}:{seconds}";
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 form  = new Form2();
+            form.ShowDialog();
+            this.Close();
         }
     }
 }
