@@ -11,9 +11,9 @@ using System.Windows.Forms;
 namespace MathTrainer
 {
     //добавить сравнение, уравнение, 
-    public partial class Form2 : Form
+    public partial class FormWelcome : Form
     {
-        public Form2()
+        public FormWelcome()
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
@@ -41,7 +41,7 @@ namespace MathTrainer
             else if (radioButton20.Checked) maxCountQuestion = 20; //20 вопросов
 
 
-            Form1 trainingForm = new Form1(difficulty, operation, maxCountQuestion);
+            FormTrainer trainingForm = new FormTrainer(difficulty, operation, maxCountQuestion);
             trainingForm.Show();//Открываем следущую форму
             this.Hide(); // Скрыть текущую форму
         }

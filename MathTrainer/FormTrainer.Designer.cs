@@ -1,6 +1,6 @@
 ﻿namespace MathTrainer
 {
-    partial class Form1
+    partial class FormTrainer
     {
         /// <summary>
         ///  Required designer variable.

@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace MathTrainer
 {
-    public partial class Form1 : Form
+    public partial class FormTrainer : Form
     {
         //Для генерации чисел
         private Random random;
@@ -31,7 +31,7 @@ namespace MathTrainer
         private int countQuestion = 1;
         private int countCorrectAnswers=0;
 
-        public Form1(int difficulty, int operation, int maxCountQuestion)
+        public FormTrainer(int difficulty, int operation, int maxCountQuestion)
         {
             InitializeComponent();
             SetOperation(operation, difficulty);
@@ -147,7 +147,7 @@ namespace MathTrainer
                             maxNumber = 15;
 
                             minDegree = 2;
-                            maxDegree = 3;
+                            maxDegree = 4;
                             break;
                     }
                     break;
@@ -242,16 +242,16 @@ namespace MathTrainer
         {
             // Генерируем варианты ответов
             List<int> options = new List<int> { correctAnswer };
-            while (options.Count < 3)
+            while (options.Count < 3) // пока количетсво сгенерированных вариантов меньше 3
             {
                 int randomOption;
-                if (operation == "division")
+                if (operation == "division") //Если операция деление
                 {
-                    randomOption = random.Next(correctAnswer - 2, correctAnswer + 2);
+                    randomOption = random.Next(correctAnswer - 2, correctAnswer + 2); //устанавливаем вариант рандомно от -2 до 2
                 }
-                else if(operation == "degree")
+                else if(operation == "degree")//Если операция возведение в степень
                 {
-                    int rand = random.Next(0, 3);
+                    int rand = random.Next(0, 3); //устанавливаем вариант рандомно от -10 до +10
                     if (rand == 1)
                     {
                         randomOption = random.Next(correctAnswer - 3, correctAnswer + 3);
@@ -265,10 +265,10 @@ namespace MathTrainer
                         randomOption = correctAnswer + 10;
                     }
                 }
-                else if(operation == "multiplication" & difficultyRus != "Легкий уровень")
+                else if(operation == "multiplication" & difficultyRus != "Легкий уровень") // если умножение не легкий уровень
                 {
                     int rand = random.Next(0, 4);
-                    switch (rand)
+                    switch (rand) // устанавливаем вариант рандомно от -20 до + 20
                     {
                         case 0:
                             randomOption = correctAnswer - 10;
@@ -287,13 +287,13 @@ namespace MathTrainer
                             break;
                     }
                 }
-                else
+                else // для всех остальных
                 {
                     randomOption = random.Next(correctAnswer - 5, correctAnswer + 5);
                 }
                 if (!options.Contains(randomOption) && randomOption > 0) // Убедимся, что ответ не повторяется и не отрицательный
                 {
-                    options.Add(randomOption);
+                    options.Add(randomOption);//добваляем вариант 
                 }
             }
 
@@ -448,7 +448,7 @@ namespace MathTrainer
         {
             // Закрываем текущую форму и открываем Form2
             this.Hide(); // Скрываем текущую форм
-            Form2 form2 = new Form2(); // Создаем экземпляр Form2
+            FormWelcome form2 = new FormWelcome(); // Создаем экземпляр Form2
             form2.Show(); // Показываем Form2
         }
         
